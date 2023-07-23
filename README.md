@@ -1,1 +1,0 @@
-# veri-tipleri-dictionary
