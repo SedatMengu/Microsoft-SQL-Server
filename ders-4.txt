@@ -1,0 +1,43 @@
+# select komutunu öğreniyoruz.
+
+# Ogrenci2 tablosuna sağ tık yaparak edit from 200 rows ile tabloyu dolduracağız.
+
+# sol tarafta öğrenci tablosu seçili iken "new query" ye tıklıyoruz ve ilk sorgumuzu yazıyoruz.
+
+
+
+
+# sorgu ile ilgili püf noktaları :
+
+# 1- SELECT anahtar kelimesinden sonra hangi sütun ismi önce yazılır ise görüntüleme ekranı o sıraya göre çıktı verir
+# 2- SELECT * bütün kayıtları tarar,
+# 3- Tarih ile ilgili sorgularda yılaygün olarak arada herhangi bir belirteç olmadan yazmak gerekir.
+# 4- herhangi bir sorguyu yorum satırı yapmak için ctrl + k + c yapıyoruz. burası önemli - tersi için ctrl + k + u
+# 5- WHERE ile string koşullar yazılırken , "" yerine '' kullanılır.
+
+# basit birkaç sorgu : 
+
+# SELECT * FROM Ogrenci2 
+# / tüm kayıtları bize görüntüler
+
+# SELECT OgrenciAdi FROM Ogrenci2 
+# / sadece OgrenciAdi sütunundaki bilgileri görüntüler
+
+# SELECT OgrenciAdi, KayitTarihi FROM Ogrenci2 
+# / OgrenciAdi ve KayitTarihi bilgilerini görüntüler
+
+# SELECT * FROM Ogrenci2 WHERE ErkekMi=1 
+# / ErkekMi sütunu 1 olan bütün kayıtları görüntüler,
+
+# SELECT * FROM Ogrenci2 WHERE KayitTarihi ='2020-01-01' 
+# / Kayıt Tarihi 2020-01-01 olanları görüntüler, 
+
+# SELECT OgrenciAdi,OgrenciSoyadi,OgrenciNo FROM Ogrenci2 WHERE OgrenciSoyadi ='soyad1'
+# / OgrenciSoyadi = 'soyad1' olan kişinin OgrenciAdi , OgrenciSoyadi , OgrenciNo bilgilerini görüntüler.
+
+# SELECT OgrenciAdi,OgrenciSoyadi,OgrenciNo FROM Ogrenci2 WHERE KayitTarihi >='2021-01-01'
+#  / KayitTarihi 2021-01-01 den büyük olan öğrencilerin OgrenciAdi , OgrenciSoyadi , OgrenciNo bilgilerini görüntüler.
+
+# SELECT OgrenciNo,  OgrenciAdi , OgrenciSoyadi FROM Ogrenci2 WHERE OgrenciNo > 2 AND OgrenciNo < 5
+# / Ogrenci No 5 den küçük ve Ogrenci No 2 den büyük olan kayıtların OgrenciNo , OgrenciAdi , OgrenciSoyadı bilgilerini görüntüler.
+

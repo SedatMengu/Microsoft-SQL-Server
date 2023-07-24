@@ -1,0 +1,52 @@
+# Operatörler ;
+
+# 1- AND SQL sorgularında birden fazla koşulun aynı anda sağlanması gerektiğinde kullanılır.
+     AND operatörü, birden fazla koşulu birleştirmek ve sadece tüm koşullar sağlandığında sonucu döndürmek için kullanılır.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciSoyadi='Kaya' AND OgrenciAdi='Zeynep'
+# / Ogrenci2 kayıtları arasında ogrenciAdi Zeynep ve OgrenciSoyadi Kaya kayıtlara ait bütün bilgileri görüntüler.
+
+# 2- OR SQL sorgularında birden fazla koşuldan en az birinin sağlanması durumunda sonucun döndürülmesi için kullanılır. 
+     OR operatörü, farklı koşulları birleştirmek ve en az bir koşulun doğru (TRUE) olması durumunda sonucu döndürmek için kullanılır.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciSoyadi='Kaya' OR OgrenciAdi='Zeynep'
+# / Ogrenci2 kayıtları arasında OgrenciAdi Zeynep veya OgrenciSoyadi Kaya olan kayıtlara ait bütün bilgileri görüntüler.
+
+
+# 3- IN belirli bir değerin birden fazla değerle eşleşip eşleşmediğini kontrol etmek ve bu değerlerin listesi içinde bulunup bulunmadığını sorgulamak için kullanılır. 
+     IN operatörü, SQL sorgularını daha kısa ve anlaşılır hale getirirken, birden fazla koşulun tekrar tekrar yazılmasını engeller.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciNo IN (3,4,5)
+# / Ogrenci2 kayıtları arasında OgrenciNo 3 , 4 , 5 olan kayıtlara ait bütün bilgileri görüntüler.
+
+SELECT * FROM Ogrenci2 WHERE OgrenciNo IN (3,4,5) AND ErkekMi = 0
+# / Ogrenci2 kayıtları arasında OgrenciNo 3 , 4 , 5 olan ve kız olan kayıta ait bütün bilgileri görüntüler.
+
+
+# 4- LIKE  belirli bir şablona uyan değerleri aramak için kullanılan bir karşılaştırma operatörüdür. 
+     LIKE, karakter dizilerinin içindeki metni belirli bir desene veya kalıba göre filtrelemek için kullanılır. 
+     LIKE operatörü, genellikle metin tabanlı sütunlarda yapılan aramalarda ve veri analizinde yaygın olarak kullanılır.
+     LIKE operatörü, iki önemli joker karakteriyle birlikte kullanılabilir:
+     % (yüzde işareti): Bu joker, herhangi bir karakter veya karakter dizisinin yerini alabilir.
+     _ (alt çizgi): Bu joker, tek bir karakterin yerini alabilir.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciAdi LIKE '%A%'
+# / Ogrenci2 kayıtları arasında herhangi bir konumda A harfi olan kayıta ait bütün bilgileri görüntüler.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciSoyadi LIKE '_a_'
+# / Ogrenci2 kayıtları arasında OgrenciSoyadi 3 harfli olup ortasında a olan kayıda ait bütün bilgileri görüntüler. ( kan ve can olan kayılar görüntülendi.)
+
+
+# 5- BETWEEN belirli bir aralıktaki değerleri sorgulamak ve filtrelemek için kullanılır. 
+     BETWEEN operatörü, belirtilen iki değer arasında veya aralığında olan verileri getirmek için kullanışlıdır.
+
+# SELECT * FROM Ogrenci2 WHERE OgrenciNo BETWEEN 2 AND 6
+# / Ogrenci2 kayıtlar içerisinde OgrenciNo 2 ve 6 arasında ( 2 ve 6 dahil) ki kayıtların bütün bilgilerini görüntüler.
+
+
+# 6- IS NULL bir alanın veya değerin NULL (boş) olup olmadığını kontrol etmek için kullanılır. 
+     NULL, bir alanın veya değerin değeri belirtilmediğinde veya bilinmediğinde kullanılan bir durumdur. 
+
+# SELECT * FROM Ogrenci2 WHERE adres IS NULL
+# / Ogrenci2 kayıtları içerisinde adres bilgisi NULL olan kayıtların tüm bilgilerini görüntüler.
+
