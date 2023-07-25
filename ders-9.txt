@@ -1,0 +1,6 @@
+DELETE KOMUTU
+
+Ogrenci2 tablosundaki kayıtlar arasında OgrenciNo=10 olan kayıtları silelim
+
+DELETE FROM Ogrenci2 WHERE OgrenciNo = 10
+

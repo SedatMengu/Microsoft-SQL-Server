@@ -1,0 +1,21 @@
+INSERT komutu
+
+# tanımı : insert manuel olarak veri girmeyi query oluşturarak yapmamızı sağlar.
+
+program aracılığı ile sql e kayıt atmak için kullanılır.
+
+INSERT INTO Ogrenci2 VALUES(10,'Ali','Can',12345678901,'20200721',1,'20200807',0,90,90,90)
+
+bu komut values de ki bilgileri al ve ogrenci2 tablosuna kaydet demektir. aynı query i kaç defa execute edersek o kadar defa çalışır.
+4 defa ard arda yukarıdaki komutu execute ettik , aynı kayıttan 4 tane oluştu.
+
+insert komutu ile not null olanları ve deafault olmayanları doldurmak zorundayız.
+
+INSERT INTO Ogrenci2 (OgrenciNo , OgrenciAdi , OgrenciSoyadi,TCKimlikNo,KayitTarihi,DogumTarihi,ErkekMi)
+			values(11,'gül','naz','98765432101','2020-05-09','2000-09-09',0)
+
+
+bu şekilde key&value olarak da kayıt yapabiliriz. sıralama olarak hangi sırada key girdiysek value leri de o sıralama ile girmemize gerekir.
+
+
+

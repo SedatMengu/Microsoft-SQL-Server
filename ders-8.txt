@@ -1,0 +1,39 @@
+UPDATE KOMUTU
+
+Mevcut verilerden herhangi bir veya birden fazla kaydı aynı anda güncellemeye yarayan komuttur.
+
+adı zeynep olanların SinavNotu2 değerini 100 yaptık
+
+UPDATE Ogrenci2
+SET SinavNotu2 = 100
+WHERE OgrenciAdi = 'zeynep'
+
+ozan kulak FinalNotu nu 99 yaptık.
+UPDATE Ogrenci2
+set FinalNotu =99
+WHERE OgrenciAdi = 'ozan' AND OgrenciSoyadi = 'kulak'
+
+
+Ogrenci2 tablosundaki bütün kayıtların KayitTarihi aynı oldu.
+
+UPDATE Ogrenci2
+SET KayitTarihi = '1999-09-09'
+
+Ogrenci2 tablosundaki bütün kayıtların FinalNotu 100 yaptık.
+
+UPDATE Ogrenci2
+SET FinalNotu=100
+
+Ogrenci2 tablosundaki bütün kayıtların SinavNotu1 ve SinavNotu2 notlarını aynı anda günelledik.
+
+UPDATE Ogrenci2
+SET SinavNotu1=99 , SinavNotu2=98
+
+WHERE anahtar kelimesini eklemez isek bütün kayıtlar için geçerli sayar.
+
+Ogrenci2 tablosundaki erkek öğrencilerin FinalNotu = 91 olsun
+
+UPDATE Ogrenci2
+SET FinalNotu=91
+WHERE ErkekMi=1
+
