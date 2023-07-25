@@ -1,0 +1,57 @@
+# bu dersre daha önce oluşturduğumuz tabloya query ile eklemeler yapacağız.
+
+# şu 3 tabloyu ekleyeceğiz.
+
+# 1- Vize1
+# 2- Vize2
+# 3- Final
+
+# bu 3 tablonun da veri tipi tinyint olacak. tinyint - 0 ile 255 arasında değer salkayabilir.
+
+# bu tablolara default değer atayacağız. genel anlamda hesaplama yapacağımız tablolarda default değer tanımlamamız bizim için avantajdır , sürekli NULL kontrolü yapmaktan kurtarız bizi.
+
+
+# query olarak şu şekilde yapabiliriz.
+
+ALTER TABLE Ogrenci2 ADD
+Vize1 tinyint,
+Vize2 tinyint,
+Final tinyint
+
+# execute edersek 3 adet sütu tabloya eklenmiş olur.
+
+# tabloyu hatalı eklediğimizi düşünürsek sql server da default değer atayamayız ,columnları silerek tekrar oluşturmamız gerekir.
+
+--ALTER TABLE Ogrenci2
+--DROP COLUMN Vize1, Vize2 , Final      / burası Vize1 , Vize2 , Final columnlarını siler,
+
+ALTER TABLE Ogrenci2 ADD
+Vize1 TINYINT DEFAULT 0,
+Vize2 TINYINT DEFAULT 0,
+Final TINYINT DEFAULT 0
+
+# / burada default olarak değer atadık. 
+
+# yukarıdaki eklemeden sonra girilen her kayıtta veri girilmez ise DEFAULT olarak ayarlanan değer görünür.
+
+# UPDATE Ogrenci2
+# SET Final = 0
+# WHERE Final IS NULL; 
+
+# / bu query ile Final Notu Null Olanları 0 ile değiştirdik.
+
+
+UPDATE Ogrenci2
+SET KayitTarihi = '2022-01-01'
+WHERE KayitTarihi = '2020-01-01'
+
+/ Kayıt tarihi 2020-01-01 olanları 2022-01-01 olarak değiştirdik.
+
+
+
+bu şekilde column adını değiştirebiliriz.
+EXEC sp_rename 'tablo adı.column eski adı', 'column yeni adı', 'COLUMN';
+
+
+
+
