@@ -1,10 +1,1 @@
-ORDER BY komutu, sıralamak için kullanılır. asc - artan , desc - azalan
-
-
-Ogrenci2 tablosundaki kayıtları Öğrenci numrası azalana göre sırala
-SELECT * FROM Ogrenci2 ORDER BY OgrenciNo desc
-
-OgrenciNo tablosundaki kayıtları önce ErkekMi durumuna göre daha sonra OgrenciNo ya göre sırala
-SELECT * FROM Ogrenci2 ORDER BY ErkekMi ,OgrenciNo
-
-erkekleri kendi içinde kızları kendi içinde numraya göre sıralar.
+between komutu
