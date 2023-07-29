@@ -1,1 +1,12 @@
-between komutu
+BETWEEN komutu
+
+herhangi iki koşul arasındaki değerleri görüntülemeye yarar. BETWEEN komutunu kullanmadan da aynı çıktıyı verebiliriz ancak öğrendiysek kullanalım.
+
+
+SELECT * from where OgrenciNo<5 and OgrenciNo>8 BETWEEN kullanmadan yapabiliriz.
+
+aynı işlermi between kullanarak yaparsak , 
+
+SELECT * from where OgrenciNo between 5 and 8 (5 İLE 8  DAHİL)
+
+SELECT * from where OgrenciNo between 5 AND 8 AND Erkekmi=1 ( birden fazla filtreyi aynı anda yapabiliyoruz.)
