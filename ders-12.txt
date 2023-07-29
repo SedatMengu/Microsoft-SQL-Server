@@ -1,1 +1,22 @@
-count
+COUNT - SQL sorguları aracılığıyla veritabanındaki kayıtların sayısını belirlemek için kullanılır.
+        count yardımı ile null değer olup olmadığına bakabiliriz.
+
+SELECT count(*) from Ogrenci / 
+Toplam kayıt sayısını verebiliriz
+
+SELECT COUNT(*) FROM Ogrenci2 WHERE ErkekMi = 1
+Erkek olan kayıtları getirir.
+
+SUM - SQL'de sütundaki değerlerin toplamını almak için kullanılan bir agregasyon işlemidir.
+        string ifadelerde işe yaramaz.
+        where ile bir koşul ekleyebiliriz.
+
+SELECT SUM(OgrenciNo) FROM Ogrenci2
+Ogrenci Numaralarının toplamını verir.
+
+MAX - SQL'de sütundaki değerlerin en büyüğünü bulmak için kullanılan bir agregasyon işlemidir.
+        string ifadelerde işe yaramaz.
+        where ile bir koşul ekleyebiliriz.
+
+SELECT MAX(OgrenciNo) FROM Ogrenci2 
+Ogrenci Numaralarının toplamını verir.
