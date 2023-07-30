@@ -50,3 +50,4 @@ SELECT * FROM Ogrenci2 WHERE OgrenciNo IN (3,4,5) AND ErkekMi = 0
 # SELECT * FROM Ogrenci2 WHERE adres IS NULL
 # / Ogrenci2 kayıtları içerisinde adres bilgisi NULL olan kayıtların tüm bilgilerini görüntüler.
 
+

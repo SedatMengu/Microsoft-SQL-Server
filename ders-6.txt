@@ -34,9 +34,9 @@ Final TINYINT DEFAULT 0
 
 # yukarıdaki eklemeden sonra girilen her kayıtta veri girilmez ise DEFAULT olarak ayarlanan değer görünür.
 
-# UPDATE Ogrenci2
-# SET Final = 0
-# WHERE Final IS NULL; 
+UPDATE Ogrenci2
+SET Final = 0
+WHERE Final IS NULL; 
 
 # / bu query ile Final Notu Null Olanları 0 ile değiştirdik.
 

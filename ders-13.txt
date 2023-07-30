@@ -1,1 +1,81 @@
-count
+GROUP BY - verileri belirli bir sütuna göre gruplamak için kullanılır.
+           Bu ifade, verileri gruplayarak ve her grup için bir veya birden fazla agregasyon işlemi (SUM, COUNT, MAX, MIN, vb.) 
+           uygulayarak veritabanında özetleme veya toplama işlemleri gerçekleştirmeye olanak tanır.
+           
+devam ettirdiğimiz tablomuz üzerinden örnek verecek olursak ,
+
+özetle hangi kayıttan kaç tane var onu tespit etmek için kullanılır.
+
+kullanım şekli şöyledir.
+
+SELECET 'kullanılacak column adı' , ' yapılacak işlem' AS 'sorgu cevabında görünecek colum adı' FROM 'tablo adı' GROUP BY 'kullanılacak column adı' 
+
+
+1  zeynep	kaya	11111111111	    1999-09-09	1	2000-01-01	0	        99	98	91		5/E
+2  ahmet	bitigen	22222222222	    1999-09-09	0	2020-01-01	0	        99	98	100		5/A
+3  olcay	kaya	33333333333	    1999-09-09	1	2020-01-01	0	        99	98	91		5/C
+4  idris	kurt	44444444444	    1999-09-09	1	2000-01-01	istanbul	99	98	91		5/A
+5  lale	    zor	    55555555555	    1999-09-09	0	2020-01-01	ankara	    99	98	100		5/C
+6  zeynep	can	    11111111112	    1999-09-09	0	2020-01-01	kars	    99	98	100		5/E
+7  mesut	kan	    11111111113	    1999-09-09	1	2020-03-03	ağrı	    99	98	91		5/B
+8  ozan	    kulak	1111111114 	    1999-09-09	1	2020-01-01	ARDAHAN	    99	98	91		5/B
+9  pınar	lale	111        	    1999-09-09	0	2020-10-10	kars	    99	98	100		5/B
+10 gül	    naz	    98765432101	    1999-09-09	0	2000-09-09	NULL	    99	98	100		5/A
+
+
+
+1- erkek öğrencilerin sayılarını çıkartabiliriz.
+2- kız öğrencilerin final ortamalamarını çıkartabiliriz
+3- erkek öğrencilerin doğum tarihlerinin ortalamasını çıkartabiliriz.
+
+SELECT Class, count(*) FROM Ogrenci2 GROUP BY Class
+
+/ Ogrenci2 tablosundaki Class sütunlarını say ve gruplandır dedik. exceldeki çoketopla gibi
+
+5/A	3
+5/B	3
+5/C	2
+5/E	2
+
+SELECT SinavNotu1, count(*) FROM Ogrenci2 GROUP BY SinavNotu1
+
+-- Ogrenci2 tablosundaki SinavNotu1 tablosunda hangi sayıdan kaç tane var gruplandır dedik.exceldeki çoketopla gibi
+
+99	10
+
+SELECT adres , COUNT(*) FROM Ogrenci2 Group by adres
+
+-- Ogrenci2 tablosundaki adres sütunlarını say ve gruplandır dedik. exceldeki çoketopla gibi
+
+NULL	    1
+0	        3
+ağrı	    1
+ankara	    1
+ARDAHAN	    1
+istanbul	1
+kars	    2
+
+SELECT ErkekMi , COUNT(*) AS 'Ogrenci Sayısı' , AVG(FinalNotu) AS 'Final Ortalaması'  FROM Ogrenci2 Group by ErkekMi
+
+
+Önemli: FROM DAN ÖNCE YAZAN ŞEYLER SORGU EKRANINDA ÇIKAN BİLGİLERDİR.
+
+
+SELECT Class , COUNT(*) AS 'Ogrenci Sayısı' , AVG(FinalNotu) AS 'Final Ortalaması'  FROM Ogrenci2 Group by Class
+
+bu sorgunun türkçesi , 
+
+class sınıfına göre çalış , 
+
+Ogrenci Sayısı column una sütunları say ,
+Final ortalaması column una final ortalamasını getir,
+
+sonuç,
+
+
+Class / Ogrenci Sayısı / Final Ortalaması
+5/A	        3	            97
+5/B	        3	            94
+5/C	        2	            95
+5/E	        2	            95
+
