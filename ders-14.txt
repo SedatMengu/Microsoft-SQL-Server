@@ -1,2 +1,32 @@
 Primary Key konusu
 
+bir tablodaki verileri benzersiz bir şekilde tanımlayan ve her satırın birincil anahtar sütununda benzersiz bir değeri olması gereken bir sütundur. 
+Birincil anahtar, tablonun veri bütünlüğünü sağlamak ve bir satırı tekil olarak tanımlamak için kullanılır.
+
+Bir tabloya birincil anahtar atanması, aşağıdaki avantajları sağlar:
+
+1- Benzersiz Tanımlama: Birincil anahtar, tablodaki her satırın benzersiz bir şekilde tanımlanmasını sağlar. 
+                        Bu sayede, her satırın kendine özgü bir anahtar değeri olduğu için verilerin tekrarlamasına izin vermez.
+
+2- Hızlı Erişim: Birincil anahtar, tablodaki satırlara hızlı bir şekilde erişim sağlar. 
+                 Veritabanı yönetim sistemi (DBMS), birincil anahtarı indeksler ve bu indeks sayesinde verilerin daha hızlı aranması ve sıralanması mümkün olur.
+
+3- Veri Bütünlüğü: Birincil anahtar, veritabanında veri bütünlüğünü sağlamak için kullanılır. 
+                   Veri bütünlüğü, veritabanında saklanan verilerin doğruluğu ve tutarlılığı anlamına gelir. 
+                   Birincil anahtar, verilerin düzgün bir şekilde yönetilmesine yardımcı olur ve yanlış veya tutarsız veri eklemesini önler.
+
+Birincil anahtar, bir tablo oluşturulurken veya daha sonra ALTER TABLE komutuyla tanımlanabilir. 
+Aynı tabloda yalnızca bir tane birincil anahtar olabilir ve bu anahtar genellikle tek bir sütunda tanımlanır, ancak birden fazla sütunun bileşik birincil anahtar olarak tanımlandığı durumlar da mümkündür.
+
+Özetle, SQL Server'da birincil anahtar, bir tablodaki verileri benzersiz bir şekilde tanımlayan ve veri bütünlüğünü sağlayan bir sütundur. Bu, verilere hızlı erişim ve düzgün veri yönetimi sağlar.
+
+
+Primary key yapabilmek için 'desing' dan ilgili satıra giderek sağ tık yapıp 'set primary key' işaretleyip tabloyu kaydediyoruz.
+
+Primary key yaptığımız sütunda , mesela öğrenci numarası , ya da tc kimlik numarası gibi ( müşteri ID de olabilir) aynı numara birden fazla kere kullanılamaz.
+
+NOT: query çalıştırdıktan sonra karşımıza çıkan ekrandaki columnların yerlerini değiştirmemiz ana kayıt ekranını etkilemez , aynı query i tekrar çalıştırdığımızda orjinal halinde gene gelir.
+
+
+
+
