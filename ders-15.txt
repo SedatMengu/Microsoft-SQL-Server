@@ -1,0 +1,49 @@
+WHERE KOMUTU İLE TABLOLARI BİRLEŞTİRME
+
+birbirinden farklı tabloları aynı sorguda birleştirmek için şu query i yazmak gerekir.
+
+SELECT Ogrenci2.OgrenciNo,Ogrenci2.OgrenciAdi,Ogrenci2.OgrenciSoyadi,
+		OgrenciAdres.AdresDetay,OgrenciAdres.Sehir FROM Ogrenci2,OgrenciAdres
+
+bu şekilde çalıştırırsak her iki tabloyu birleştirir ancak büyük tabloyu küçüğü ile tamamlayarak doldurur.
+
+1	zeynep	    kaya	    Sultanbeyli	34
+2	ahmet	    bitigen	Sultanbeyli	34
+3	olcay	    kaya	Sultanbeyli	34
+4	idris	    kurt	Sultanbeyli	34
+5	lale	    zor	Sultanbeyli	34
+6	zeynep	    can	Sultanbeyli	34
+7	mesut	    kan	Sultanbeyli	34
+8	ozan	    kulak	Sultanbeyli	34
+9	pınar	    lale	Sultanbeyli	34
+11	gül	        naz	Sultanbeyli	34
+1	zeynep	    kaya	Başakşehir	34
+2	ahmet	    bitigen	Başakşehir	34
+3	olcay	    kaya	Başakşehir	34
+4	idris	    kurt	Başakşehir	34
+5	lale	    zor	Başakşehir	34
+6	zeynep	    can	Başakşehir	34
+7	mesut	    kan	Başakşehir	34
+8	ozan	    kulak	Başakşehir	34
+9	pınar	    lale	Başakşehir	34
+11	gül	        naz	Başakşehir	34
+1	zeynep	    kaya	Üsküdar	6
+2	ahmet	    bitigen	Üsküdar	6
+3	olcay	    kaya	Üsküdar	6
+4	idris	    kurt	Üsküdar	6
+5	lale	    zor	Üsküdar	6
+6	zeynep	can	Üsküdar	6
+7	mesut	kan	Üsküdar	6
+8	ozan	kulak	Üsküdar	6
+9	pınar	lale	Üsküdar	6
+11	gül	naz	Üsküdar	6
+1	zeynep	kaya	kadıköy	7
+2	ahmet	bitigen	kadıköy	7
+3	olcay	kaya	kadıköy	7
+4	idris	kurt	kadıköy	7
+5	lale	zor	kadıköy	7
+6	zeynep	can	kadıköy	7
+7	mesut	kan	kadıköy	7
+8	ozan	kulak	kadıköy	7
+9	pınar	lale	kadıköy	7
+11	gül	naz	kadıköy	7
