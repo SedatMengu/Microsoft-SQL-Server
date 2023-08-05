@@ -3,14 +3,72 @@ Join işlemleri
 1 - INNER JOIN: iki veya daha fazla tabloyu birleştirirken, her iki tabloda "ortak olan" kayıtları döndürür. 
             Yani, yalnızca ortak değerlere sahip olan satırları getirir. 
             INNER JOIN anahtar kelimesi kullanılarak uygulanır.
+            bir tabloda 5 kayıt var , dğer tabloda 3 kayıt var ise iner join yaparsak 3 kayıt görüntülenir.
 
 SELECT columns
 FROM table1
 INNER JOIN table2 ON table1.column = table2.column;
 
-SELECT * FROM
+bir önceki derste yazdığımız query 
+
+SELECT Ogrenci2.OgrenciNo,Ogrenci2.OgrenciAdi,Ogrenci2.OgrenciSoyadi,
+		OgrenciAdres.AdresDetay,OgrenciAdres.Sehir FROM Ogrenci2,OgrenciAdres
+        WHERE Ogrenci2.OgrenciNo = OgrenciAdres.OgrenciNo
+
+aynı çıktıyı verecek inner join kullanarak yazarsak , ( OgrenciNo 2 defa yazıldı)
+
+SELECT * FROM Ogrenci2 Ogr INNER JOIN OgrenciAdres OgrAdr ON Ogr.OgrenciNo = OgrAdr.OgrenciNo
+
+1	zeynep	kaya	11111111111	1999-09-09	1	2000-01-01	0	99	98	91	5/E	1	Sultanbeyli	34
+2	ahmet	bitigen	22222222222	1999-09-09	0	2020-01-01	0	99	98	100	5/A	2	Başakşehir	34
+3	olcay	kaya	33333333333	1999-09-09	1	2020-01-01	0	99	98	91	5/C	3	Üsküdar	6
+4	idris	kurt	44444444444	1999-09-09	1	2000-01-01	istanbul	99	98	91	5/A	4	kadıköy	7
 
 
+hangi sütunların gösterilmesini istiyorsak bu columnları isteyebiliriz.
+
+SELECT Ogr.OgrenciNo , Ogr.OgrenciAdi , Ogr.OgrenciSoyadi,Ogr.KayitTarihi , OgrAdr.Sehir 
+    FROM Ogrenci2 Ogr 
+    INNER JOIN OgrenciAdres OgrAdr 
+    ON Ogr.OgrenciNo = OgrAdr.OgrenciNo
+
+1	zeynep	kaya	1999-09-09	34
+2	ahmet	bitigen	1999-09-09	34
+3	olcay	kaya	1999-09-09	6
+4	idris	kurt	1999-09-09	7
+
+CREATE TABLE KantinKayitlari(
+FisNo int NOT NULL,
+OgrenciNo int NOT NULL,
+Harcama int NOT NULL )
+
+/ bu şekilde bi tablo yaptık
+
+INSERT INTO KantinKayitlari (FisNo , OgrenciNo , Harcama)
+			values(1,1,100)
+INSERT INTO KantinKayitlari (FisNo , OgrenciNo , Harcama)
+			values(2,2,100)
+
+/ bu şekilde 2 kayıt oluşturduk.
+
+SELECT O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi , KK.Harcama FROM Ogrenci2 O INNER JOIN KantinKayitlari KK ON O.OgrenciNo = KK.OgrenciNo
+
+/ bu şekilde bi query oluşturduk . sonuçları aşağıdadır.
+
+1	zeynep	kaya	1999-09-09	100
+2	ahmet	bitigen	1999-09-09	90
+1	zeynep	kaya	1999-09-09	100
+2	ahmet	bitigen	1999-09-09	100
+
+SELECT O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi , SUM(KK.Harcama) AS 'TOPLAM HARCAMA'
+	FROM Ogrenci2 O 
+	INNER JOIN KantinKayitlari KK 
+	ON O.OgrenciNo = KK.OgrenciNo
+	GROUP BY O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi
+
+                                TOPLAM HARCAMA
+1	zeynep	kaya	1999-09-09	    200
+2	ahmet	bitigen	1999-09-09	    190
 
 
 
