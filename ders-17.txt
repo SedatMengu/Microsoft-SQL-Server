@@ -1,39 +1,46 @@
 Join işlemleri
 
-1 - INNER JOIN: iki veya daha fazla tabloyu birleştirirken, her iki tabloda "ortak olan" kayıtları döndürür. 
-            Yani, yalnızca ortak değerlere sahip olan satırları getirir. 
-            INNER JOIN anahtar kelimesi kullanılarak uygulanır.
-
-SELECT columns
-FROM table1
-INNER JOIN table2 ON table1.column = table2.column;
-
-SELECT * FROM
-
-
-
-
-
 2 - LEFT JOIN (veya LEFT OUTER JOIN): soldaki (ilk belirtilen) tablodaki tüm kayıtları ve sağdaki tablodaki eşleşen kayıtları döndürür. 
                                   Eşleşme olmadığı durumlarda, sağ tablodaki sütunlar NULL olarak doldurulur.
 
+inner joinden farkı ilk yazdığımız A tablosunun tamamını alırız , B tablosunun kesişim verilerini alır.
+
+burada olmayan satırları NULL olarak getirir.
 
 SELECT columns
 FROM table1
 LEFT JOIN table2 ON table1.column = table2.column;
 
+SELECT O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi , SUM(KK.Harcama) AS 'TOPLAM HARCAMA'
+	FROM Ogrenci2 O 
+	LEFT JOIN KantinKayitlari KK 
+	ON O.OgrenciNo = KK.OgrenciNo
+	GROUP BY O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi
 
-3 - RIGHT JOIN (veya RIGHT OUTER JOIN): sağdaki (ikinci belirtilen) tablodaki tüm kayıtları ve soldaki tablodaki eşleşen kayıtları döndürür. 
-                                        Eşleşme olmadığı durumlarda, sol tablodaki sütunlar NULL olarak doldurulur.
+1	zeynep	kaya	1999-09-09	    200
+2	ahmet	bitigen	1999-09-09	    190
+3	olcay	kaya	1999-09-09	    NULL
+4	idris	kurt	1999-09-09	    NULL
+5	lale	zor	    1999-09-09	    NULL
+6	zeynep	can	    1999-09-09	    NULL
+7	mesut	kan	    1999-09-09	    NULL
+8	ozan	kulak	1999-09-09	    NULL
+9	pınar	lale	1999-09-09	    NULL
+11	gül	    naz	    1999-09-09	    NULL
 
-SELECT columns
-FROM table1
-RIGHT JOIN table2 ON table1.column = table2.column;
 
-4 - FULL JOIN (veya FULL OUTER JOIN): iki tablodaki tüm kayıtları ve eşleşen kayıtları döndürür.
-                                      Eşleşmeyen durumlarda, her iki tablodaki sütunlar NULL olarak doldurulur.
+left join de kümelerdeki 'değil' olayını şu şekilde yapıyoruz.
 
-SELECT columns
-FROM table1
-FULL JOIN table2 ON table1.column = table2.column;
+SELECT O.OgrenciNo , O.OgrenciAdi , O.OgrenciSoyadi,O.KayitTarihi , OA.Sehir AS 'TOPLAM HARCAMA'
+	FROM Ogrenci2 O 
+	LEFT JOIN OgrenciAdres OA 
+	ON O.OgrenciNo = OA.OgrenciNo
+	WHERE OA.OgrenciNo IS NULL          / burası 'değil' anlamı katıyor.
+
+5	lale	zor	1999-09-09	NULL
+6	zeynep	can	1999-09-09	NULL
+7	mesut	kan	1999-09-09	NULL
+8	ozan	kulak	1999-09-09	NULL
+9	pınar	lale	1999-09-09	NULL
+11	gül	naz	1999-09-09	NULL
 
