@@ -7,10 +7,5 @@ SELECT columns
 FROM table1
 RIGHT JOIN table2 ON table1.column = table2.column;
 
-4 - FULL JOIN (veya FULL OUTER JOIN): iki tablodaki tüm kayıtları ve eşleşen kayıtları döndürür.
-                                      Eşleşmeyen durumlarda, her iki tablodaki sütunlar NULL olarak doldurulur.
-
-SELECT columns
-FROM table1
-FULL JOIN table2 ON table1.column = table2.column;
+left join ile aynı mantıkta çalışır.
 

@@ -1,39 +1,31 @@
 Join işlemleri
 
-1 - INNER JOIN: iki veya daha fazla tabloyu birleştirirken, her iki tabloda "ortak olan" kayıtları döndürür. 
-            Yani, yalnızca ortak değerlere sahip olan satırları getirir. 
-            INNER JOIN anahtar kelimesi kullanılarak uygulanır.
-
-SELECT columns
-FROM table1
-INNER JOIN table2 ON table1.column = table2.column;
-
-SELECT * FROM
-
-
-
-
-
-2 - LEFT JOIN (veya LEFT OUTER JOIN): soldaki (ilk belirtilen) tablodaki tüm kayıtları ve sağdaki tablodaki eşleşen kayıtları döndürür. 
-                                  Eşleşme olmadığı durumlarda, sağ tablodaki sütunlar NULL olarak doldurulur.
-
-
-SELECT columns
-FROM table1
-LEFT JOIN table2 ON table1.column = table2.column;
-
-
-3 - RIGHT JOIN (veya RIGHT OUTER JOIN): sağdaki (ikinci belirtilen) tablodaki tüm kayıtları ve soldaki tablodaki eşleşen kayıtları döndürür. 
-                                        Eşleşme olmadığı durumlarda, sol tablodaki sütunlar NULL olarak doldurulur.
-
-SELECT columns
-FROM table1
-RIGHT JOIN table2 ON table1.column = table2.column;
-
 4 - FULL JOIN (veya FULL OUTER JOIN): iki tablodaki tüm kayıtları ve eşleşen kayıtları döndürür.
                                       Eşleşmeyen durumlarda, her iki tablodaki sütunlar NULL olarak doldurulur.
 
+                            
 SELECT columns
 FROM table1
 FULL JOIN table2 ON table1.column = table2.column;
+
+
+
+SELECT O.OgrenciNo , Oadr.OgrenciNo, O.OgrenciAdi , O.OgrenciSoyadi , Oadr.Sehir
+FROM Ogrenci2 O 
+FULL JOIN OgrenciAdres Oadr
+ON O.OgrenciNo = Oadr.OgrenciNo
+
+O.OgrenciNo / Oadr.OgrenciNo / O.OgrenciAdi / O.OgrenciSoyadi / Oadr.Sehir
+    1	            1	        zeynep	            kaya	        34
+    2	            2	        ahmet	            bitigen	        34
+    3	            3	        olcay	            kaya	        6
+    4	            4	        idris	            kurt	        7
+    5	            NULL	    lale	            zor	            NULL
+    6	            NULL	    zeynep	            can	            NULL
+    7	            NULL	    mesut	            kan	            NULL
+    8	            NULL	    ozan	            kulak	        NULL
+    9	            NULL	    pınar	            lale	        NULL
+    11	            NULL	    gül	                naz	            NULL
+    NULL	        12	        NULL	            NULL	        52          / bu kayıt sadece AdresDetay tablosunda olduğundna diğer alanlar NULL geldi
+
 
