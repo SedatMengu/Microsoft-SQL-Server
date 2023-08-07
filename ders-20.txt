@@ -1,1 +1,14 @@
 ALT SORGULAR
+
+örnek üzerinden gidecek olursak,
+
+istanbulda oturan kişilerin ogrenci isim ve soyisimlerini getirebiliriz.bunu alt sorgu ile yaparız. inner join yapmadan direkt sonuç verir.
+
+join işlemi için bilgisayarı zorlar , buna gerek olmadan alt sorgu ile yapabiliriz.
+
+SELECT * FROM Ogrenci2
+WHERE OgrenciNo
+IN (SELECT OgrenciNo FROM OgrenciAdres WHERE Sehir = 34)
+
+1	zeynep	kaya	11111111111	1999-09-09	1	2000-01-01	0	99	98	91	5/E
+2	ahmet	bitigen	22222222222	1999-09-09	0	2020-01-01	0	99	98	100	5/A
