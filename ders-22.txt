@@ -16,3 +16,51 @@ ilgili database altında
 
 altına kaydediyoruz.
 
+SELECT * FROM Ogrenci2 WHERE OgrenciNo
+    IN 
+(SELECT OgrenciNo FROM OgrenciAdres WHERE Sehir = 34)
+
+bu sorguyu procedure yapmak için ,
+
+CREATE PROCEDURE SehireGoreOgrenciListeleme (@plaka int)
+	AS
+SELECT * FROM Ogrenci2 WHERE OgrenciNo
+    IN 
+(SELECT OgrenciNo FROM OgrenciAdres WHERE Sehir = @plaka)
+
+
+procedure ismini ve @ kısmını istediğimiz gibi verebiliriz.
+
+excute yaptığımızda programmobility altındaki storet prosedure altında verdiğimiz isimle kaydedilir.
+
+bilgisayarı kapatıp açsak bile procedure silinmez.
+
+procedure nasıl çağırılır,
+
+exec SehireGoreOgrenciListeleme 34
+
+1	zeynep	kaya	11111111111	1999-09-09	1	2000-01-01	0	99	98	91	5/E
+2	ahmet	bitigen	22222222222	1999-09-09	0	2020-01-01	0	99	98	100	5/A
+
+exec SehireGoreOgrenciListeleme 52
+
+normal şartlarda AdresDetay tablosunda 52 kodlu sehir var ancak 52 nılu sehire kayıtlı 12 numarlaı öğrencinin kayıt bilgileri yok,
+bu sebepten dolayı kayıt görüntülenmedi.
+
+procedure güncellemek için create yerine alter yazmamız ve query de de gerekli yerleri düzeltmemiz yeterli olur.
+
+
+CREATE PROCEDURE ilceyeGoreOgrenciListeleme (@ilce nvarchar(50))
+	AS
+SELECT * FROM Ogrenci2 WHERE OgrenciNo
+    IN 
+(SELECT OgrenciNo FROM OgrenciAdres WHERE AdresDetay like @ilce)
+
+EXEC ilceyeGoreOgrenciListeleme '%a%'
+
+
+öneli not : içeren şeyleri bulmak için like kullanılır.
+önemli not2 : string ifadeleri tırnak içinde kullanmak gerekir.
+
+
+
