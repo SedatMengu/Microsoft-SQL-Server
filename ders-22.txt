@@ -1,1 +1,18 @@
 Stored Procedure Kullanımı 
+
+SQL Server Management Studio (SSMS), veritabanı yönetimi için kullanılan bir araçtır 
+ve bu araç üzerinden SQL sorgularını çalıştırmanın yanı sıra depo edilen prosedürler (stored procedures) 
+gibi veritabanı nesnelerini oluşturabilir, yönetebilir ve kullanabilirsiniz.
+
+Stored procedure, veritabanında saklanan ve bir veya daha fazla SQL sorgusunu içeren önceden tanımlanmış bir programdır. 
+Bu prosedürler veritabanını yönetmek, verileri işlemek veya karmaşık işlemleri gerçekleştirmek için kullanılabilirler. 
+Stored procedure'lar, tekrar tekrar kullanılabilirlik, güvenlik ve performans açısından avantaj sağlar.
+
+uzun sorguları tekrar tekrar yazmaya gerek olmadan bir defaya mahsus tanımlıyoruz ve buna stored procedure denir.
+
+ilgili database altında
+    programmability
+        stored procedures
+
+altına kaydediyoruz.
+
