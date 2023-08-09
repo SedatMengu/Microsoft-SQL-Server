@@ -1,0 +1,20 @@
+transaction kavramı :
+
+SQL Server Management Studio (SSMS) içinde işlem yönetimi (transaction management), 
+veritabanında yapılan değişiklikleri düzenli ve güvenli bir şekilde gerçekleştirmenizi sağlayan önemli bir konsepttir. 
+İşlemler (transactions), bir veya birden fazla SQL sorgusunun bir araya getirilerek tek bir mantıklı işlem olarak 
+ele alınmasını sağlar. İşlemler başarıyla tamamlandığında veritabanı kalıcı olarak güncellenir, 
+başarısız olduğunda ise geri alınır.
+
+
+2 kayıt arasındaki herhangi bir sayı aktarımı olduğunda update olarak şu şekilde yapabiliriz.
+
+UPDATE BankKart SET Bakiye = Bakiye - 50 WHERE OgrenciNo = 1
+UPDATE BankKart SET Bakiye = Bakiye + 50 WHERE OgrenciNo = 2
+
+bakiye trasferi için bu senaryoyu uygulayabiliriz ancak bunun yerine 
+
+BEGIN transaction
+    UPDATE BankKart SET Bakiye = Bakiye - 50 WHERE OgrenciNo = 1
+    UPDATE BankKart SET Bakiye = Bakiye + 50 WHERE OgrenciNo = 2
+COMMIT transaction
