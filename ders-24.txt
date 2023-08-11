@@ -1,0 +1,24 @@
+Foreign Key Kullanımı
+
+Foreign key (yabancı anahtar), ilişkisel veritabanlarında kullanılan bir kavramdır 
+ve tablolar arasındaki ilişkileri tanımlamak için kullanılır. 
+Foreign key, bir tablodaki bir sütunun, başka bir tablodaki bir sütunun değerlerine referans vermesini sağlar. 
+Bu sayede tablolar arasında bütünlük ve ilişki sağlanabilir.
+
+- başka bir tablonun primary key ini kullanıyorsak kullandığız şey primary key dir.
+
+- örneğimiz üzerinden gidecek olursak foreing key primary key olan öğrenci kaytlarının dışında bir öğrenci numarası girmemizi engeller.
+
+foreing key nasıl yapılır,
+
+1.adım : primary key yapar gibi sekmenin üzerinde sağ tık yapıyoruz ve relationship seçeneğini seçiyoruz.
+2.adım : add seçeneğini seçiyoruz 
+3.adım : 'Tables And Column Specification' yanındaki 3 noktaya tıklıyoruz ve primary key ile foreing key bağlantısını yapıyoruz.
+primary key kısmında veriyi çektiği tablo ve orada primary key olan column belirtilir.
+Foreign key kısmında ise tablo adı ve önceki tabloda primary key olan solumn seçilir.
+4.adım : close diyerek bu şekilde kaydetmemiz gerekiyor.
+
+Foreign key tanımlaması yapmadan önce kaydı olmayan bi öğrenci numarası kantinden alışveriş yapabilirdi.
+Foreign key sayesinde bunu engellemiş olduk.
+
+önemli : Foreign key kaydında sorun yaşarsak Tools / Options / Designer / Table and atabase Designers / Prevent saving changes that require table re-creation tikli olmamalı.
