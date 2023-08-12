@@ -1,0 +1,31 @@
+Auto Increment Kullanımı (sütun değerlerini otomatik artırma)
+
+her bir log tablosunda Increment olmazsa olmazdır.
+
+***Ogrenci sayısının arttığı tarihi loglayacağız.
+
+öğrenci sayısında herhangi bir değişiklik olursa bu loglansın.
+
+Increment yapma :
+
+1.adım : Increment olması gereken column u çok iyi belirlememiz gerekir. bu örnekte logID yapacağız.
+2.adım : tabloda column properties den Identity Specification u 'yes' olarak işaretliyoruz.
+3.adım : Identity Increment hangi sayıdan başlayacağımızı gösteriyorlar.
+4.adım : Identity Seed ile de ilerleme adımını belirleyebiliyoruz.
+
+birtane tablo yapıyoruz. 
+
+1.column LogID integer veri tipinde ve not null olacak
+2.column OgrenciSayisi integer veri tipinde ve not null olacak
+3.column Tarih datetime veri tipinde not null olacak.
+
+1.columnu Increment olarak ayaladık ve primary key yaptık.
+
+OgrenciLog adını vererek tabloyu kaydettik.
+
+OgrenciLog tablosuna kayıt atacağız.
+
+INSERT INTO OgrenciLog (OgrenciSayisi , Tarih) values (120 , getdate()) bu satırı çalıştırırsak OgrenciLog tablosuna 1 tane kayıt yapılır.
+INSERT INTO OgrenciLog (OgrenciSayisi , Tarih) values (121 , getdate()) bu satırı çalıştırırsak OgrenciLog tablosuna 1 tane kayıt daha yapılır.
+
+LogID tablosuna herhangi bir kayıt yapmadık ancak yaptığımız Increment sayesinde her defasına yeni numara verildi.
