@@ -1,31 +1,28 @@
-Auto Increment Kullanımı (sütun değerlerini otomatik artırma)
+trigger kullanımı;
 
-her bir log tablosunda Increment olmazsa olmazdır.
+trigger nedir ?
 
-***Ogrenci sayısının arttığı tarihi loglayacağız.
+veri tabanı işlemlerinde bir işlem yapılırken otomatik olarak arka landa başka işlemlerin tetiklenmesini isteyebiliriz.
+mesela öğrenci kayd yaptığımızda arka planda toplam ğrenci sayısını güncelleyen bir kayıt olabiblir
+mesela bir e ticaret sitesinde sepete eklenen ürünler için sepetteki ürün sayısını otomatik tetiklenmesi istenebilir
+mesela bir ürün hakkında yorum yapıldığında toplam yapılan yorum sayısını trigger ile otomatik artırabiliriz.
 
-öğrenci sayısında herhangi bir değişiklik olursa bu loglansın.
 
-Increment yapma :
+MSSQL (Microsoft SQL Server) trigger, veritabanı yönetim sistemlerindeki (RDBMS) bir bileşen türüdür. 
+Bir trigger, belirli bir olayın (event) meydana geldiğinde otomatik olarak çalışan ve tanımlanan işlemleri gerçekleştiren bir veritabanı nesnesidir.
+Triggers, veritabanı işlemlerini otomatikleştirmek, veri bütünlüğünü korumak veya özel iş mantığını uygulamak gibi amaçlarla kullanılır.
 
-1.adım : Increment olması gereken column u çok iyi belirlememiz gerekir. bu örnekte logID yapacağız.
-2.adım : tabloda column properties den Identity Specification u 'yes' olarak işaretliyoruz.
-3.adım : Identity Increment hangi sayıdan başlayacağımızı gösteriyorlar.
-4.adım : Identity Seed ile de ilerleme adımını belirleyebiliyoruz.
+MSSQL'de iki tür trigger bulunmaktadır:
 
-birtane tablo yapıyoruz. 
+1- Araştırma (After) Trigger: Bu tür trigger, belirli bir eylemin (örneğin, INSERT, UPDATE veya DELETE işlemleri) gerçekleşmesinin ardından tetiklenir. 
+Yani, bir veri ekleme, güncelleme veya silme işlemi gerçekleştikten sonra tetiklenir ve ilgili işlemleri gerçekleştirir.
 
-1.column LogID integer veri tipinde ve not null olacak
-2.column OgrenciSayisi integer veri tipinde ve not null olacak
-3.column Tarih datetime veri tipinde not null olacak.
 
-1.columnu Increment olarak ayaladık ve primary key yaptık.
+2- Yerleştirme (Instead Of) Trigger: Bu tür trigger, belirli bir eylem gerçekleştiğinde normal işlemi iptal edip yerine başka bir işlem gerçekleştirmek için kullanılır. 
+Örneğin, bir veri ekleme işlemi gerçekleşmeden önce bu tür bir trigger tetiklenirse, veri eklemek yerine başka bir işlem yapılabilir.
 
-OgrenciLog adını vererek tabloyu kaydettik.
 
-OgrenciLog tablosuna kayıt atacağız.
+bir triggers nasıl yapılır?
 
-INSERT INTO OgrenciLog (OgrenciSayisi , Tarih) values (120 , getdate()) bu satırı çalıştırırsak OgrenciLog tablosuna 1 tane kayıt yapılır.
-INSERT INTO OgrenciLog (OgrenciSayisi , Tarih) values (121 , getdate()) bu satırı çalıştırırsak OgrenciLog tablosuna 1 tane kayıt daha yapılır.
-
-LogID tablosuna herhangi bir kayıt yapmadık ancak yaptığımız Increment sayesinde her defasına yeni numara verildi.
+1.adım : triggers için hangi tablo ile bağlantılı olacağını belirlemek gerekir.
+2.adım : 
